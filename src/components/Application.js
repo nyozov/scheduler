@@ -9,9 +9,28 @@ import useApplicationData from "hooks/useApplicationData";
 
 
 export default function Application(props) {
-const {state, updateSpots, setDay, bookInterview, cancelInterview} = useApplicationData()
- 
+const {state, setDay, bookInterview, cancelInterview} = useApplicationData()
 
+const schedule =  getAppointmentsForDay(state, state.day).map((appointment) => {
+  const interview = getInterview(state, appointment.interview);
+  console.log("appointment:", appointment)
+  const interviewers = getInterviewersForDay(state, state.day)
+
+  return (
+    <Appointment
+      key={appointment.id}
+      id={appointment.id}
+      time={appointment.time}
+      interview={interview}
+      interviewers={interviewers}
+      bookInterview={bookInterview}
+      cancelInterview={cancelInterview}
+      
+    
+    />
+    
+  );
+})
   
   return (
     <main className="layout">
@@ -35,26 +54,14 @@ const {state, updateSpots, setDay, bookInterview, cancelInterview} = useApplicat
 />
       </section>
       <section className="schedule">
-      {getAppointmentsForDay(state, state.day).map((appointment) => {
-  const interview = getInterview(state, appointment.interview);
-  const interviewers = getInterviewersForDay(state, state.day)
-
-  return (
-    <Appointment
-      key={appointment.id}
-      id={appointment.id}
-      time={appointment.time}
-      interview={interview}
-      interviewers={interviewers}
-      bookInterview={bookInterview}
-      cancelInterview={cancelInterview}
-      updateSpots={updateSpots}
+     {schedule}
+     <Appointment
     
+      time = "5pm"
+     
+      
     
     />
-  );
-})}
-      
       </section>
       
     </main>
