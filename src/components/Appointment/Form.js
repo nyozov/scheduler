@@ -23,6 +23,10 @@ function validate() {
     setError("Student name cannot be blank");
     return;
   }
+  if (interviewerName === null){
+    setError("Please select interviewer");
+    return;
+  }
   setError("")
   props.onSave(studentName, interviewerName);
 }

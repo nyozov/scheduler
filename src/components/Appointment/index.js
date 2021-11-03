@@ -32,12 +32,13 @@ export default function Appointment(props){
       
     };
     
-    transition(SAVING);
+    transition(SAVING, true);
 
     props
     .bookInterview(props.id, interview)
     .then(() => transition(SHOW))
     .catch(error => transition(ERROR_SAVE, true));
+   
     
   }
 
@@ -50,6 +51,7 @@ export default function Appointment(props){
     .cancelInterview(props.id)
     .then(() => transition(EMPTY))
     .catch(error => transition(ERROR_DELETE, true));
+    
   
      }
     }
@@ -57,6 +59,7 @@ export default function Appointment(props){
   function edit(){
     transition(EDIT)
   }
+
   return (
     <article className="appointment">
     <Header time={props.time}></Header>
