@@ -4,8 +4,8 @@ A user can book an appointment by selecing a day through Monday to Friday, selec
 
 ## Screenshots
 
-!{"creating an interview"}(https://github.com/nyozov/scheduler/blob/master/docs/creating-interview.png?raw=true)
-!{"available spots"}(https://github.com/nyozov/scheduler/blob/master/docs/interview-spots.png?raw=true)
+!["creating an interview"](https://github.com/nyozov/scheduler/blob/master/docs/creating-interview.png?raw=true)
+!["available spots"](https://github.com/nyozov/scheduler/blob/master/docs/interview-spots.png?raw=true)
 
 ## Setup
 
